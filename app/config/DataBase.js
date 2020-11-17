@@ -8,7 +8,6 @@ const {
   DB_PORT = 5432,
 } = process.env;
 
-
 module.exports = {
   client: 'pg',
   connection: `postgres://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,

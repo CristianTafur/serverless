@@ -1,13 +1,13 @@
-const { Router, json } = require('express');
+const { Router } = require('express');
+
 const app = Router();
-const logger = require('./utils/logs'); 
-const usersControllers = require('../app/controllers/usersControllers');
 
-app.get('/', async function (req, res) {
-    res.send({message:'Hello World!'});
-    logger.create('' + JSON.stringify({message:'Hello World!'}));
-})
+const usersControllers = require('./controllers/usersControllers');
 
-app.post('/user',usersControllers.create);
+app.get('/', usersControllers.findAll);
+
+app.post('/user', usersControllers.create);
+
+app.post('/create', usersControllers.createMovement);
 
 module.exports = app;

@@ -19,17 +19,20 @@ Init:
   stage: init
   script:
     - npm i
-    - npm install -g serverless
-    - echo $AWS_ACCESS_KEY_ID
-    - echo $AWS_SECRET_ACCESS_KEY
-    - serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
-    - serverless deploy
+    - ./node_modules/eslint/bin/eslint.js .
 
 Deploy:
   when: manual
   stage: deploy
   script:
-    - echo "deploy :'3"
+    - npm install -g serverless
+    - echo $AWS_ACCESS_KEY_ID
+    - echo $AWS_SECRET_ACCESS_KEY
+    - serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
+    - serverless deploy
+  only:
+    - master
+
 
 
 

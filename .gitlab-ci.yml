@@ -17,8 +17,6 @@ stages:
 Init:
   when: always
   stage: init
-  tags:
-    - aws
   script:
     - npm i
     - npm install -g serverless

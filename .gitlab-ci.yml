@@ -22,8 +22,7 @@ Init:
     - npm install -g serverless
     - echo $AWS_ACCESS_KEY_ID
     - echo $AWS_SECRET_ACCESS_KEY
-
-    #- serverless config credentials --provider provider --key key --secret secret
+    - serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
 
 # Deploy:
 #   when: manual

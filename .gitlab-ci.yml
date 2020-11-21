@@ -6,6 +6,12 @@ image: node:latest
 services:
   - postgres:latest
 
+variables:
+  POSTGRES_DB: nice_marmot
+  POSTGRES_USER: runner
+  POSTGRES_PASSWORD: ""
+  POSTGRES_HOST_AUTH_METHOD: trust
+
 cache:
   paths:
     - node_modules/
@@ -19,7 +25,8 @@ Init:
   stage: init
   script:
     - npm i
-    - ./node_modules/eslint/bin/eslint.js .
+    - npm run eslint
+    - npm run migrate
 
 Deploy:
   when: manual

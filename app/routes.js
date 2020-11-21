@@ -8,6 +8,4 @@ app.get('/', usersControllers.findAll);
 
 app.post('/user', usersControllers.create);
 
-app.post('/create', usersControllers.createMovement);
-
 module.exports = app;

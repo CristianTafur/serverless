@@ -1,0 +1,39 @@
+image: node:latest
+
+# Pick zero or more services to be used on all builds.
+# Only needed when using a docker container to run your tests in.
+# Check out: http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
+services:
+  - postgres:latest
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - init
+  - deploy
+
+Init:
+  when: always
+  stage: init
+  tags:
+    - aws
+  script:
+    - npm i
+    - npm install -g serverless
+    - echo $AWS_ACCESS_KEY_ID
+    - echo $AWS_SECRET_ACCESS_KEY
+
+    #- serverless config credentials --provider provider --key key --secret secret
+
+# Deploy:
+#   when: manual
+#   stage: deploy
+#   tags:
+#     - aws
+#   script:
+#     - 
+
+
+

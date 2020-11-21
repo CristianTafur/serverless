@@ -20,15 +20,16 @@ Init:
   script:
     - npm i
     - npm install -g serverless
+    - echo $AWS_ACCESS_KEY_ID
+    - echo $AWS_SECRET_ACCESS_KEY
+    - serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
+    - serverless deploy
 
 Deploy:
   when: manual
   stage: deploy
   script:
-    - echo $AWS_ACCESS_KEY_ID
-    - echo $AWS_SECRET_ACCESS_KEY
-    - serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
-    - serverless deploy
+    - echo "deploy :'3"
 
 
 

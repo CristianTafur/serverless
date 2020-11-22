@@ -1,7 +1,7 @@
 const MAX_CONNECTION_POOLSIZE = 5;
 
 const {
-  DB_NAME = 'users-ms',
+  DB_NAME = 'users',
   DB_USER = 'postgres',
   DB_PASS = 'devPasswordFullSctack600',
   DB_HOST = 'crowdlending.c0dvhdmqym2w.us-east-1.rds.amazonaws.com',

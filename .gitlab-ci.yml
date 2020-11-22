@@ -3,14 +3,6 @@ image: node:latest
 # Pick zero or more services to be used on all builds.
 # Only needed when using a docker container to run your tests in.
 # Check out: http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
-services:
-  - postgres:latest
-
-variables:
-  POSTGRES_DB: nice_marmot
-  POSTGRES_USER: runner
-  POSTGRES_PASSWORD: ""
-  POSTGRES_HOST_AUTH_METHOD: trust
 
 cache:
   paths:
@@ -23,6 +15,13 @@ stages:
 Init:
   when: always
   stage: init
+  services:
+  - postgres:latest
+  variables:
+    POSTGRES_DB: nice_marmot
+    POSTGRES_USER: runner
+    POSTGRES_PASSWORD: ""
+    POSTGRES_HOST_AUTH_METHOD: trust
   script:
     - npm i
     - npm run eslint
@@ -31,7 +30,14 @@ Init:
 Deploy:
   when: manual
   stage: deploy
+  variables:
+    DB_NAME: $DB_NAME
+    DB_USER: $DB_USER
+    DB_PASS: $DB_PASS
+    DB_HOST: $DB_HOST
+    DB_PORT: $DB_PORT
   script:
+    - npm run migrate
     - npm install -g serverless
     - serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
     - serverless deploy

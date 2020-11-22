@@ -4,9 +4,22 @@ const usersRepository = require('../repository/usersRepository');
 const httpClient = require('../utils/HttpClient');
 
 usersServices.findAll = async () => {
-  const { ip } = await httpClient.get('https://api.ipify.org?format=json');
+  // const users = await usersRepository.findAll();
+  const {
+    DB_NAME,
+    DB_USER,
+    DB_PASS,
+    DB_HOST,
+    DB_PORT,
+  } = process.env;
 
-  return { message: `hola onichan uwu <3! la ip del servidor es: ${ip}` };
+  return {
+    DB_NAME,
+    DB_USER,
+    DB_PASS,
+    DB_HOST,
+    DB_PORT,
+  };
 };
 
 usersServices.create = async (body) => {

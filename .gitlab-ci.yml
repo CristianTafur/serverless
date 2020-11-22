@@ -31,10 +31,10 @@ Deploy:
   when: manual
   stage: deploy
   script:
-    - echo "DB_NAME=$DB_NAME" > .env
-    - echo "DB_USER=$DB_USER" > .env
-    - echo "DB_HOST=$DB_HOST" > .env
-    - echo "DB_PASS=$DB_PASS" > .env
+    # - echo "DB_NAME=$DB_NAME" > .env
+    # - echo "DB_USER=$DB_USER" > .env
+    # - echo "DB_HOST=$DB_HOST" > .env
+    # - echo "DB_PASS=$DB_PASS" > .env
     - npm install -g serverless
     - serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
     - serverless deploy

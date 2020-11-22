@@ -31,7 +31,7 @@ Init:
     - npm i
     - npm run eslint
     - npm run migrate
-    #- npm test
+    - npm test
 
     #- npm test
 
@@ -39,9 +39,10 @@ Deploy:
   when: manual
   stage: deploy
   script:
-    - npm install -g serverless
-    - serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
-    - serverless deploy
+    - echo $DB_HOST
+    # - npm install -g serverless
+    # - serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
+    # - serverless deploy
   only:
     - master
 

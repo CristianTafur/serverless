@@ -30,9 +30,8 @@ Init:
     - echo $DB_HOST
     - npm i
     - npm run eslint
+    - npm migrate
     - npm test
-
-    #- npm test
 
 Deploy:
   when: manual

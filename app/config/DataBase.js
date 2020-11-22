@@ -3,7 +3,7 @@ const MAX_CONNECTION_POOLSIZE = 5;
 const {
   DB_NAME = 'users-ms',
   DB_USER = 'postgres',
-  DB_PASS = 'johanandres2',
+  DB_PASS = 'password',
   DB_HOST = 'localhost',
   DB_PORT = 5432,
 } = process.env;

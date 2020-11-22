@@ -23,6 +23,10 @@ Init:
     POSTGRES_PASSWORD: ""
     POSTGRES_HOST_AUTH_METHOD: trust
   script:
+    - echo "DB_NAME=$DB_NAME_DEV" > .env
+    - echo "DB_USER=$DB_USER_DEV" > .env
+    - echo "DB_HOST=$DB_HOST_DEV" > .env
+    - echo "DB_PASS=$DB_PASS_DEV" > .env
     - npm i
     - npm run eslint
     - npm run start
@@ -31,10 +35,7 @@ Deploy:
   when: manual
   stage: deploy
   script:
-    # - echo "DB_NAME=$DB_NAME" > .env
-    # - echo "DB_USER=$DB_USER" > .env
-    # - echo "DB_HOST=$DB_HOST" > .env
-    # - echo "DB_PASS=$DB_PASS" > .env
+    
     - npm install -g serverless
     - serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
     - serverless deploy

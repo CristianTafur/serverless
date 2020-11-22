@@ -9,8 +9,9 @@ const api = '/user';
 // eslint-disable-next-line no-undef
 describe('user:', () => {
   // eslint-disable-next-line no-undef
-  beforeAll(() => {
-    helper.clear();
+  beforeAll(async () => {
+    await helper.migrate();
+    await helper.clear();
   });
   // eslint-disable-next-line no-undef
   beforeEach(() => {

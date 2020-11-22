@@ -18,9 +18,9 @@ Init:
   services:
   - postgres:latest
   variables:
-    POSTGRES_DB: nice_marmot
-    POSTGRES_USER: runner
-    POSTGRES_PASSWORD: ""
+    POSTGRES_DB: $DB_NAME_DEV
+    POSTGRES_USER: $DB_USER_DEV
+    POSTGRES_PASSWORD: $DB_PASS_DEV
     POSTGRES_HOST_AUTH_METHOD: trust
   script:
     - DB_NAME=$DB_NAME_DEV

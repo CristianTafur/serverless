@@ -3,8 +3,8 @@ const MAX_CONNECTION_POOLSIZE = 5;
 const {
   DB_NAME = 'users-ms',
   DB_USER = 'postgres',
-  DB_PASS = 'password',
-  DB_HOST = 'localhost',
+  DB_PASS = 'devPasswordFullSctack600',
+  DB_HOST = 'crowdlending.c0dvhdmqym2w.us-east-1.rds.amazonaws.com',
   DB_PORT = 5432,
 } = process.env;
 

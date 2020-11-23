@@ -37,7 +37,7 @@ Test:
   when: always
   stage: test
   script:
-    - make unit_test
+    - npm run test
   coverage: '/All\sfiles.*\|.*\|.*\|.*\|\s+(\d+.\d+)/'
   artifacts:
     paths:

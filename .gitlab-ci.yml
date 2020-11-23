@@ -31,7 +31,6 @@ Init:
     - echo $DB_HOST
     - npm i
     - npm run eslint
-    - npm migrate
 
 Test:
   when: always

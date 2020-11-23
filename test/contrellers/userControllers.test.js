@@ -10,6 +10,11 @@ const api = '/user';
 describe('user:', () => {
   // eslint-disable-next-line no-undef
   beforeAll(async () => {
+    try {
+      await helper.migrate();
+    } catch (error) {
+      console.log(error);
+    }
     await helper.clear();
   });
   // eslint-disable-next-line no-undef

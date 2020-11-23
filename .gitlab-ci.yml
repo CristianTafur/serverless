@@ -30,7 +30,7 @@ Test:
     - echo $DB_HOST
     - npm i
     - npm run eslint
-    - npm test:coverage
+    - npm run test:coverage
 
 Deploy:
   when: manual

@@ -36,8 +36,6 @@ Init:
 Test:
   when: always
   stage: test
-  tags:
-    - aws
   script:
     - make unit_test
   coverage: '/All\sfiles.*\|.*\|.*\|.*\|\s+(\d+.\d+)/'

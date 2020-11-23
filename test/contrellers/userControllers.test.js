@@ -1,9 +1,6 @@
-const chai = require('chai');
-const chaiHttp = require('chai-http');
+const request = require('supertest');
 const helper = require('../helper');
-const app = require('../../app.js');
-
-chai.use(chaiHttp);
+const app = require('../../server.js');
 
 const api = '/user';
 // eslint-disable-next-line no-undef
@@ -18,18 +15,25 @@ describe('user:', () => {
     await helper.clear();
   });
   // eslint-disable-next-line no-undef
-  beforeEach(() => {
-    helper.clear();
+  beforeEach(async () => {
+    await helper.clear();
   });
   // eslint-disable-next-line no-undef
-  test('should process steps', async () => {
-    const { body } = await chai.request(app).post(api).send({
+  afterAll(async () => {
+    await helper.db.destroy();
+  });
+  // eslint-disable-next-line no-undef
+  test('should process steps', (done) => request(app)
+    .post(api)
+    .send({
       email: 'jua@gmail.com',
       password: '1234',
-    });
-    // eslint-disable-next-line no-undef
-    console.log(body);
-    // eslint-disable-next-line no-undef
-    expect(typeof body).toBe(typeof {});
-  });
+    })
+    .expect(200)
+    .end((err, res) => {
+      if (err) done(err);
+      // eslint-disable-next-line no-undef
+      expect(typeof res).toBe(typeof {});
+      done();
+    }));
 });

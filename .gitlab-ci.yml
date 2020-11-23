@@ -9,11 +9,10 @@ cache:
     - node_modules/
 
 stages:
-  - init
   - test
   - deploy
 
-Init:
+test:
   when: always
   stage: init
   services:
@@ -31,18 +30,7 @@ Init:
     - echo $DB_HOST
     - npm i
     - npm run eslint
-
-Test:
-  when: always
-  stage: test
-  script:
-    - npm run test
-  coverage: '/All\sfiles.*\|.*\|.*\|.*\|\s+(\d+.\d+)/'
-  artifacts:
-    paths:
-      - coverage/lcov.info
-    expire_in: 1000 sec
-
+    - npm test:coverage
 
 Deploy:
   when: manual

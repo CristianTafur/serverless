@@ -24,18 +24,24 @@
     "serverless-http": "^2.6.0"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "chai-http": "^4.3.0",
+    "superagent": "^6.1.0",
+    "supertest": "^6.0.1",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^7.12.1",
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.1"
+    "eslint-plugin-import": "^2.22.1",
+    "jest": "^26.6.3"
   },
   "jest": {
     "setupFiles": [
       "./test/runtime.js"
     ],
     "collectCoverageFrom": [
-      "app/routes/**/*.js"
+      "app/routes/**/*.js",
+      "app/controllers/**/*.js",
+      "app/services/**/*.js",
+      "app/repository/**/*.js"
     ],
     "coverageThreshold": {
       "global": {

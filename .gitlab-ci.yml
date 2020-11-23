@@ -27,7 +27,6 @@ Test:
     - DB_USER=$DB_USER_DEV
     - DB_HOST=$DB_HOST_DEV
     - DB_PASS=$DB_PASS_DEV
-    - echo $DB_HOST
     - npm i
     - npm run eslint
     - npm run test:coverage
@@ -36,10 +35,9 @@ Deploy:
   when: manual
   stage: deploy
   script:
-    - echo $DB_HOST
-    # - npm install -g serverless
-    # - serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
-    # - serverless deploy
+    - npm install -g serverless
+    - serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
+    - serverless deploy
   only:
     - master
 

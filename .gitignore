@@ -7,7 +7,7 @@
 node_modules/
 dist/
 .serverless/
-
+coverage/
 # Compiled Java class files
 *.class
 

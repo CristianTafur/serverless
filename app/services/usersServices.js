@@ -3,7 +3,7 @@ const usersServices = module.exports;
 const usersRepository = require('../repository/usersRepository');
 
 usersServices.findAll = async () => {
-  const user = usersRepository.findAll();
+  const user = await usersRepository.findAll();
 
   return user;
 };

@@ -4,8 +4,8 @@ const usersServices = require('../services/usersServices');
 usersControllers.findAll = async (req, res, next) => usersServices.findAll()
   .then((response) => res.send(response)).catch((err) => next(err));
 
-usersControllers.create = async (req, res, next) => {
+usersControllers.create = async (req, res) => {
   const { body } = req;
 
-  return usersServices.create(body).then((response) => res.send(response)).catch((err) => next(err));
+  return usersServices.create(body).then((response) => res.send(response)).catch((err) => res.send(err));
 };

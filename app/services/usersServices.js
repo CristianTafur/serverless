@@ -3,9 +3,21 @@ const usersServices = module.exports;
 const usersRepository = require('../repository/usersRepository');
 
 usersServices.findAll = async () => {
-  const users = await usersRepository.findAll();
+  const {
+    DB_NAME,
+    DB_USER,
+    DB_PASS,
+    DB_HOST,
+    DB_PORT,
+  } = process.env;
 
-  return users;
+  return {
+    DB_NAME,
+    DB_USER,
+    DB_PASS,
+    DB_HOST,
+    DB_PORT,
+  };
 };
 
 usersServices.create = async (body) => {

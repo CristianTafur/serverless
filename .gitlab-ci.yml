@@ -10,6 +10,7 @@ cache:
 
 stages:
   - init
+  - test
   - deploy
 
 Init:
@@ -31,7 +32,20 @@ Init:
     - npm i
     - npm run eslint
     - npm migrate
-    - npm test
+
+Test:
+  when: always
+  stage: test
+  tags:
+    - aws
+  script:
+    - make unit_test
+  coverage: '/All\sfiles.*\|.*\|.*\|.*\|\s+(\d+.\d+)/'
+  artifacts:
+    paths:
+      - coverage/lcov.info
+    expire_in: 1000 sec
+
 
 Deploy:
   when: manual

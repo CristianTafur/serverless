@@ -17,17 +17,14 @@ describe('user:', () => {
     helper.clear();
   });
   // eslint-disable-next-line no-undef
-  test('should process steps', () => chai.request(app).post(api).send({
-    email: 'jua@gmail.com',
-    password: '1234',
-  }).then((res) => {
-    const { body } = res;
+  test('should process steps', async () => {
+    const { body } = await chai.request(app).post(api).send({
+      email: 'jua@gmail.com',
+      password: '1234',
+    });
     // eslint-disable-next-line no-undef
     console.log(body);
     // eslint-disable-next-line no-undef
     expect(typeof body).toBe(typeof {});
-  })
-    .catch((err) => {
-      console.log(err);
-    }));
+  });
 });

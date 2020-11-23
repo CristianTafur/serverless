@@ -12,9 +12,9 @@ stages:
   - test
   - deploy
 
-test:
+Test:
   when: always
-  stage: init
+  stage: test
   services:
   - postgres:latest
   variables:

@@ -30,6 +30,7 @@ $ npm i -g serveless
 ```sh 
 $ npm i -g serveless@2.12.0
 ```
+
 ---
 
 ## Project settings

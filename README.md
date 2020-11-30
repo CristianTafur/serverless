@@ -7,7 +7,7 @@ Rules
 
 ## Development environment
 
-environment versions
+Environment versions
 
 1. node: latest or **12.18.0**
 2. serveless: latest or **2.12.0**
@@ -15,7 +15,7 @@ environment versions
 
 ---
 
-## install project
+## Install project
 
 ```sh 
 $ npm i 
@@ -32,7 +32,7 @@ $ npm i -g serveless@2.12.0
 ```
 ---
 
-## Configure project
+## Project settings
 
 1. Create table **user-m** in postgress.
 2. in **app/config/DataBase.js** modify **DB_PASS** = **yourPass** and  **DB_PORT** = **yourPort**.

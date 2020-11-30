@@ -17,9 +17,19 @@ environment versions
 
 ## install project
 
-1. npm i
-2. npm i -g serveless or npm i -g serveless@**2.12.0**
+```sh 
+$ npm i 
+```
 
+```sh 
+$ npm i -g serveless  
+```
+
+**or** 
+
+```sh 
+$ npm i -g serveless@2.12.0
+```
 ---
 
 ## Configure project
@@ -32,11 +42,11 @@ environment versions
 ## Run project
 
 ```sh
-1. npm run start
+$ npm run start
 ```
 ## Run test
 
 ```sh
-1. npm run test:coverage
+$ npm run test:coverage
 ```
 

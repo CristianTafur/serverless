@@ -5,52 +5,62 @@ Rules
 1. git clone https://gitlab.com/aws50/serverless.git .
 2. create your branch  **git checkout -b feature/<nameBranch>** .
 
-
 ## Development environment
 
-environment versions
+Environment versions
 
-```sh
 1. node: latest or **12.18.0**
 2. serveless: latest or **2.12.0**
 3. postgress: latest or **12.0.0**
+
+---
+
+## Install project
+
+```sh 
+$ npm i 
+```
+
+```sh 
+$ npm i -g serveless  
+```
+
+**or** 
+
+```sh 
+$ npm i -g serveless@2.12.0
 ```
 ---
 
-## install project
+## Project settings
 
-```sh
-1. npm i
-2. npm i -g serveless or npm i -g serveless@**2.12.0**
-```
----
-
-## Configure project
-
-```sh
 1. Create table **user-m** in postgress.
 2. in **app/config/DataBase.js** modify **DB_PASS** = **yourPass** and  **DB_PORT** = **yourPort**.
-```
+
 
 ```javaScript
 const {
   DB_NAME = 'users-ms',
   DB_USER = 'postgres',
-  DB_PASS = 'password',
+  DB_PASS = yourPass,
   DB_HOST = 'localhost',
-  DB_PORT = 5432,
+  DB_PORT = yourPort,
 } = process.env;
 ```
+
 ---
 
 ## Run project
 
 ```sh
-1. npm run start
+$ npm run start
 ```
+
+---
+
 ## Run test
 
 ```sh
-1. npm run test:coverage
+$ npm run test:coverage
 ```
 

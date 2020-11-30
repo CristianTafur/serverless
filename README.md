@@ -25,7 +25,7 @@ environment versions
 ## Configure project
 
 1. Create table **user-m** in postgress.
-2. in **app/config/DataBase.js** modify **DB_PASS** = **<yourPass>** and  **DB_PORT** = **<yourPort>**.
+2. in **app/config/DataBase.js** modify **DB_PASS** = **yourPass** and  **DB_PORT** = **yourPort**.
 
 ---
 

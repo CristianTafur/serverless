@@ -30,10 +30,14 @@ describe('user:', () => {
       password: '1234',
     })
     .expect(200)
-    .end((err, res) => {
+    .end(async (err, res) => {
       if (err) done(err);
+      const { body } = res;
+      const { id } = body;
+      const user = await helper.db('users').where('id', id).select('id', 'fullname', 'date').first();
+      console.log(body, user);
       // eslint-disable-next-line no-undef
-      expect(typeof res).toBe(typeof {});
+      expect(body).toMatchObject(user);
       done();
     }));
 });

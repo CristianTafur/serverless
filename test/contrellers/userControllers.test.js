@@ -37,7 +37,7 @@ describe('user:', () => {
       const user = await helper.db('users').where('id', id).select('id', 'fullname', 'date').first();
       console.log(body, user);
       // eslint-disable-next-line no-undef
-      expect(body).toMatchObject(user);
+      expect(JSON.stringify(user)).toBe(JSON.stringify(body));
       done();
     }));
 });

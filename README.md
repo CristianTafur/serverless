@@ -22,7 +22,7 @@ $ npm i
 ```
 
 ```sh 
-$ npm i -g serveless  
+$ npm i -g serverless  
 ```
 
 **or** 

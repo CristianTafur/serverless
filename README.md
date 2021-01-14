@@ -10,7 +10,7 @@ Rules
 Environment versions
 
 1. node: latest or **12.18.0**
-2. serveless: latest or **2.12.0**
+2. serverless: latest or **2.12.0**
 3. postgress: latest or **12.0.0**
 
 ---
@@ -28,7 +28,7 @@ $ npm i -g serveless
 **or** 
 
 ```sh 
-$ npm i -g serveless@2.12.0
+$ npm i -g serverless@2.12.0
 ```
 
 ---

@@ -20,6 +20,7 @@ describe('user:', () => {
   });
   // eslint-disable-next-line no-undef
   afterAll(async () => {
+    await helper.clear();
     await helper.db.destroy();
   });
   // eslint-disable-next-line no-undef

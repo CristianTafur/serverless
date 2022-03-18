@@ -16,7 +16,6 @@ module.exports = {
   },
   rules: {
     'func-names': 'off',
-    'no-console': 'off',
     'max-len': ['error', 120],
     'newline-before-return': 'error',
     'linebreak-style': 0,
